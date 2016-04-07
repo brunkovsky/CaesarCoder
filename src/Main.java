@@ -1,15 +1,13 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("Coder - 1 / Decoder - 2");
-        MyInput myOneTwoInput = new MyInput("1", "2");
-        String answer = myOneTwoInput.getAnswer();
-        System.out.println(answer);
+        Scanner scanner = new Scanner(System.in);
+        String path = scanner.nextLine();
         MyFileWorker fileWorker = new CaesarCodeDecorator(new MyFileWorkerImpl());
-        String str = fileWorker.getBodyFromFile(new File("/Volumes/Users/Stas/example0.cpp"));
-        System.out.println(str);
-        fileWorker.writeFile(new File("/Volumes/Users/Stas/example1.cpp"), str);
+        String str = fileWorker.getBodyFromFile(new File(path));
+        fileWorker.writeFile(new File(path + ".enc"), str);
     }
 }

@@ -31,12 +31,7 @@ public class CaesarCodeDecorator implements MyFileWorker {
 
     @Override
     public void writeFile(File file, String str) throws IOException {
-        char[] chars = str.toCharArray();
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < chars.length; i++) {
-            result.append((char)(chars[i] - CAESAR_CODE_OFFSET));
-        }
-        example.writeFile(file, String.valueOf(result));
+        example.writeFile(file, str);
     }
 
     private char lowCaseEnglishLettersCoder(char c, int offset) {

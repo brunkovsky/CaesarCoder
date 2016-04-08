@@ -10,20 +10,17 @@ public class MyInput {
         Collections.addAll(setOfVariants, strings);
     }
 
-    public String getAnswer() {
-        outputVariant();
+    public String getAnswer(String message) {
+        System.out.print(message + setOfVariants + ": ");
         String result;
         Scanner scanner = new Scanner(System.in);
         do {
             result = scanner.nextLine();
-            if (setOfVariants.contains(result)) {
-                break;
-            }
-        } while (true);
+        } while (!setOfVariants.contains(result));
         return result;
     }
 
-    private void outputVariant() {
-        System.out.print("Please select one of the options: " + setOfVariants + ": ");
+    public String getAnswer() {
+        return getAnswer("");
     }
 }

@@ -1,9 +1,8 @@
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class MyFileWorkerImpl implements MyFileWorker {
+public class MyFileReaderImpl implements MyFileReader {
 
     @Override
     public String getBodyFromFile(File file) throws IOException {
@@ -15,14 +14,5 @@ public class MyFileWorkerImpl implements MyFileWorker {
         }
         fileOutputStream.close();
         return result;
-    }
-
-    @Override
-    public void writeFile(File file, String s) throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        byte[] contentInBytes = s.getBytes();
-        fileOutputStream.write(contentInBytes);
-        fileOutputStream.flush();
-        fileOutputStream.close();
     }
 }
